@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Portal | ApexCare Hospital</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">+</div>
+        <span>ApexCare Hospital</span>
+      </a>
+      <div class="nav-actions">
+        <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 600;">Physician Console</span>
+        <button onclick="API.logout()" class="btn btn-outline btn-sm">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-avatar" id="doctor-avatar-initial">D</div>
+        <div class="sidebar-user-info">
+          <h4 id="doctor-name-display">Doctor</h4>
+          <span id="doctor-spec-display">Specialist</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-link active" id="nav-schedule" onclick="showTab('schedule')">
+          <span>📅</span> <span>My Schedule</span>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button onclick="API.logout()" class="btn btn-outline-danger btn-full btn-sm">Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      <section class="tab-pane active" id="tab-schedule">
+        <div class="dashboard-topbar">
+          <div class="dashboard-title">
+            <h2>Clinical Consultation Schedule</h2>
+            <p>Manage your booked patients, clinical diagnoses, and prescriptions</p>
+          </div>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Total Appointments</div>
+              <div class="stat-val" id="stat-total">0</div>
+            </div>
+            <div class="stat-icon blue">🩺</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Today's Queue</div>
+              <div class="stat-val" id="stat-today" style="color: var(--accent-teal);">0</div>
+            </div>
+            <div class="stat-icon amber">⏳</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Upcoming Booked</div>
+              <div class="stat-val" id="stat-upcoming" style="color: #0284c7;">0</div>
+            </div>
+            <div class="stat-icon blue">🗓️</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Completed Visits</div>
+              <div class="stat-val" id="stat-completed" style="color: #16a34a;">0</div>
+            </div>
+            <div class="stat-icon green">✅</div>
+          </div>
+        </div>
+
+        <!-- Appointments Table -->
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-title">Patient Consultations Queue</div>
+            <div class="filter-bar">
+              <select id="filter-doc-status" class="filter-input" onchange="filterDoctorAppointments()">
+                <option value="all">All Statuses</option>
+                <option value="Booked">Upcoming (Booked)</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+              <input type="date" id="filter-doc-date" class="filter-input" onchange="filterDoctorAppointments()">
+              <input type="text" id="filter-doc-patient" class="filter-input" placeholder="Search patient name..." oninput="filterDoctorAppointments()">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date & Slot</th>
+                  <th>Patient Info</th>
+                  <th>Visit Reason</th>
+                  <th>Status</th>
+                  <th>Prescription</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="doctor-appointments-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Complete Consultation Modal -->
+  <div class="modal-backdrop" id="complete-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Complete Patient Consultation</h3>
+        <button class="modal-close" onclick="closeCompleteModal()">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        Patient: <strong id="complete-patient-name" style="color: var(--primary-navy);">Patient</strong>
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="consultation-notes">Clinical Examination Notes & Diagnosis *</label>
+        <textarea id="consultation-notes" class="form-control" rows="3" placeholder="Record blood pressure, observations, test recommendations, diagnosis..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="consultation-prescription">Digital Prescription / Medications</label>
+        <textarea id="consultation-prescription" class="form-control" rows="3" placeholder="e.g. Paracetamol 500mg (1-0-1 for 3 days), Vitamin D3..."></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-outline" onclick="closeCompleteModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="confirmCompleteVisit()">Save & Mark Completed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Modal -->
+  <div class="modal-backdrop" id="doc-details-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Consultation Record</h3>
+        <button class="modal-close" onclick="closeDoctorDetailsModal()">&times;</button>
+      </div>
+      <div id="doc-details-content">
+        <!-- Dynamically populated -->
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline" onclick="closeDoctorDetailsModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/doctor-dashboard.js"></script>
+</body>
+</html>

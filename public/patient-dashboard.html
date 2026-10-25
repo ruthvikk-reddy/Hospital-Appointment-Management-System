@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Portal | ApexCare Hospital</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">+</div>
+        <span>ApexCare Hospital</span>
+      </a>
+      <div class="nav-actions">
+        <button onclick="API.logout()" class="btn btn-outline btn-sm">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-avatar" id="patient-avatar-initial">P</div>
+        <div class="sidebar-user-info">
+          <h4 id="patient-name-display">Patient</h4>
+          <span>Patient Portal</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-link active" id="nav-overview" onclick="showTab('overview')">
+          <span>📅</span> <span>My Appointments</span>
+        </div>
+        <a href="/book-appointment.html" class="sidebar-link">
+          <span>➕</span> <span>Book Appointment</span>
+        </a>
+        <div class="sidebar-link" id="nav-profile" onclick="showTab('profile')">
+          <span>👤</span> <span>Personal Profile</span>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button onclick="API.logout()" class="btn btn-outline-danger btn-full btn-sm">Sign Out</button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      <!-- TAB 1: Overview & Appointments -->
+      <section class="tab-pane active" id="tab-overview">
+        <div class="dashboard-topbar">
+          <div class="dashboard-title">
+            <h2>Patient Dashboard</h2>
+            <p>View your scheduled consultations, history, and medical visits</p>
+          </div>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Total Visits</div>
+              <div class="stat-val" id="stat-total">0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Upcoming Booked</div>
+              <div class="stat-val" id="stat-upcoming" style="color: var(--accent-teal);">0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Completed Visits</div>
+              <div class="stat-val" id="stat-completed" style="color: #16a34a;">0</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-info">
+              <div class="stat-lbl">Cancelled Visits</div>
+              <div class="stat-val" id="stat-cancelled" style="color: #e11d48;">0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spotlight Next Appointment -->
+        <div id="next-appointment-banner" class="next-app-card" style="display: none;">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Appointments Table Card -->
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-title">My Consultation History</div>
+            <div class="filter-bar">
+              <select id="filter-status" class="filter-input" onchange="filterAppointments()">
+                <option value="all">All Statuses</option>
+                <option value="Booked">Upcoming (Booked)</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+              <input type="text" id="filter-doctor" class="filter-input" placeholder="Search doctor or dept..." oninput="filterAppointments()">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Specialist Doctor</th>
+                  <th>Reason</th>
+                  <th>Status</th>
+                  <th>Fee</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="appointments-tbody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: Personal Profile -->
+      <section class="tab-pane" id="tab-profile">
+        <div class="dashboard-topbar">
+          <div class="dashboard-title">
+            <h2>Personal Profile</h2>
+            <p>Manage your patient contact information and medical details</p>
+          </div>
+        </div>
+
+        <div class="card" style="max-width: 650px;">
+          <form id="profile-form">
+            <div class="form-group">
+              <label class="form-label" for="prof-name">Full Name</label>
+              <input type="text" id="prof-name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prof-email">Email Address (Registered)</label>
+              <input type="email" id="prof-email" class="form-control" disabled style="background-color: #f1f5f9; cursor: not-allowed;">
+              <div class="form-helper">Email is immutable for patient identification security.</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="prof-phone">Phone Number</label>
+                <input type="tel" id="prof-phone" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prof-dob">Date of Birth</label>
+                <input type="date" id="prof-dob" class="form-control">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="prof-gender">Gender</label>
+                <select id="prof-gender" class="form-control">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                  <option value="Prefer not to say">Prefer not to say</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="prof-blood">Blood Group</label>
+                <select id="prof-blood" class="form-control">
+                  <option value="Unknown">Unknown</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="prof-address">Residential Address</label>
+              <textarea id="prof-address" class="form-control" rows="2"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Reschedule Modal -->
+  <div class="modal-backdrop" id="reschedule-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Reschedule Appointment</h3>
+        <button class="modal-close" onclick="closeRescheduleModal()">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+        Rescheduling with <strong id="reschedule-doctor-name">Doctor</strong>. Pick an alternate date and time slot:
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="reschedule-date">New Date *</label>
+        <input type="date" id="reschedule-date" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Select Alternate Slot *</label>
+        <div id="reschedule-slots-box" class="slot-grid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-outline" onclick="closeRescheduleModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="confirmReschedule()">Confirm Reschedule</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cancel Modal -->
+  <div class="modal-backdrop" id="cancel-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" style="color: var(--accent-rose);">Cancel Appointment</h3>
+        <button class="modal-close" onclick="closeCancelModal()">&times;</button>
+      </div>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem;">
+        Are you sure you want to cancel this appointment? The reserved slot will be immediately released back to the doctor's schedule.
+      </p>
+
+      <div class="form-group">
+        <label class="form-label" for="cancel-reason">Reason for Cancellation</label>
+        <textarea id="cancel-reason" class="form-control" rows="3" placeholder="Provide a brief explanation..."></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-outline" onclick="closeCancelModal()">Keep Appointment</button>
+        <button class="btn btn-outline-danger" onclick="confirmCancel()">Yes, Cancel Visit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Appointment Details Modal -->
+  <div class="modal-backdrop" id="details-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title">Appointment Details</h3>
+        <button class="modal-close" onclick="closeDetailsModal()">&times;</button>
+      </div>
+      <div id="details-modal-content">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline" onclick="closeDetailsModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/patient-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApexCare Hospital | Advanced Appointment Management System</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand">
+        <div class="brand-icon">+</div>
+        <span>ApexCare Hospital</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="#departments" class="nav-link">Departments</a></li>
+        <li><a href="/book-appointment.html" class="nav-link" style="color: var(--accent-teal); font-weight: 600;">Book Visit</a></li>
+      </ul>
+
+      <div class="nav-actions" id="nav-auth-actions">
+        <!-- Rendered dynamically by auth.js -->
+        <a href="/login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="/register.html" class="btn btn-primary btn-sm">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div>
+        <h1>Your Health Deserves Timely, Specialized Care</h1>
+        <div class="hero-cta">
+          <a href="/book-appointment.html" class="btn btn-primary btn-lg">Book Appointment Now</a>
+          <a href="#departments" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.4);">Explore Departments</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <h3>ApexCare Clinical Excellence</h3>
+          <p>Real-time healthcare services and specialist availability</p>
+        </div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat-box">
+            <div class="num">6+</div>
+            <div class="lbl">Medical Departments</div>
+          </div>
+          <div class="hero-stat-box">
+            <div class="num">8+</div>
+            <div class="lbl">Certified Specialists</div>
+          </div>
+          <div class="hero-stat-box">
+            <div class="num">100%</div>
+            <div class="lbl">Conflict-Free Slots</div>
+          </div>
+          <div class="hero-stat-box">
+            <div class="num">24/7</div>
+            <div class="lbl">Online Scheduling</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Departments Section -->
+  <section class="section" id="departments">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag">Centres of Excellence</div>
+        <h2 class="section-title">Specialized Clinical Departments</h2>
+        <p class="section-subtitle">
+          From preventative cardiology to advanced neurology, our multi-specialty departments offer comprehensive care.
+        </p>
+      </div>
+
+      <div class="grid-3" id="departments-grid">
+        <div class="empty-state">
+          <div class="empty-icon">⏳</div>
+          <div class="empty-title">Loading Departments...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>ApexCare Multi-Specialty Hospital</h3>
+        <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
+          Providing comprehensive, compassionate patient care with modern clinical facilities and online appointment scheduling.
+        </p>
+        <div style="font-size: 0.85rem; color: #94a3b8;">
+          📍 100 Hospital Boulevard, Knowledge Park, Cyber City<br>
+          📞 Emergency Helpline: +91 1800 123 4567<br>
+          ✉️ Contact: support@apexcarehospital.org
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 ApexCare Hospital Management System. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/landing.js"></script>
+</body>
+</html>

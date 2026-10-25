@@ -1,0 +1,335 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" style="background-color: #0b0f19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Background Gradient for Header -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <!-- Card Drop Shadows -->
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+
+    <!-- Arrow Markers -->
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#10b981" />
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0ea5e9" />
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#a855f7" />
+    </marker>
+    <marker id="arrowGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" />
+    </marker>
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#14b8a6" />
+    </marker>
+  </defs>
+
+  <!-- ======================================================================= -->
+  <!-- 0. HEADER BANNER                                                        -->
+  <!-- ======================================================================= -->
+  <rect x="60" y="25" width="1800" height="72" rx="10" fill="url(#headerGrad)" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+  <rect x="60" y="25" width="7" height="72" rx="3" fill="#14b8a6" />
+
+  <text x="85" y="52" fill="#ffffff" font-size="21" font-weight="800" letter-spacing="0.5">ApexCare Hospital Appointment Management System</text>
+  <text x="85" y="74" fill="#94a3b8" font-size="13" font-weight="500">Proposed System Model &amp; Architecture Diagram</text>
+
+  <rect x="1480" y="44" width="355" height="34" rx="17" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="1657" y="66" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="middle">Academic Project Review • DBMS Lab</text>
+
+  <!-- ======================================================================= -->
+  <!-- 1. USER LAYER (ACTORS)                                                  -->
+  <!-- ======================================================================= -->
+  <g transform="translate(60, 115)">
+    <rect x="0" y="0" width="1800" height="115" rx="10" fill="#0f172a" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,4" />
+    <rect x="20" y="-11" width="190" height="22" rx="5" fill="#047857" />
+    <text x="30" y="4" fill="#ffffff" font-size="11" font-weight="800" letter-spacing="1">1. USER LAYER (ACTORS)</text>
+
+    <!-- Actor 1: Patient -->
+    <g transform="translate(25, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <circle cx="44" cy="39" r="22" fill="#064e3b" stroke="#10b981" stroke-width="1.8" />
+      <text x="44" y="46" fill="#6ee7b7" font-size="20" text-anchor="middle">👤</text>
+      <text x="80" y="28" fill="#6ee7b7" font-size="16" font-weight="700">Patient</text>
+      <text x="80" y="48" fill="#cbd5e1" font-size="11.5">• Search doctors by specialty &amp; department</text>
+      <text x="80" y="65" fill="#cbd5e1" font-size="11.5">• Select available 30-minute time slots &amp; book appointments</text>
+    </g>
+
+    <!-- Actor 2: Doctor -->
+    <g transform="translate(620, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <circle cx="44" cy="39" r="22" fill="#0f766e" stroke="#14b8a6" stroke-width="1.8" />
+      <text x="44" y="47" fill="#5eead4" font-size="22" font-weight="900" text-anchor="middle">✚</text>
+      <text x="80" y="28" fill="#5eead4" font-size="16" font-weight="700">Doctor</text>
+      <text x="80" y="48" fill="#cbd5e1" font-size="11.5">• View authenticated daily OPD appointment schedule</text>
+      <text x="80" y="65" fill="#cbd5e1" font-size="11.5">• Conduct consultations, record diagnosis notes &amp; digital prescriptions</text>
+    </g>
+
+    <!-- Actor 3: Administrator -->
+    <g transform="translate(1215, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <circle cx="44" cy="39" r="22" fill="#312e81" stroke="#6366f1" stroke-width="1.8" />
+      <text x="44" y="46" fill="#a5b4fc" font-size="20" text-anchor="middle">🛡️</text>
+      <text x="80" y="28" fill="#a5b4fc" font-size="16" font-weight="700">Administrator</text>
+      <text x="80" y="48" fill="#cbd5e1" font-size="11.5">• Manage hospital departments &amp; doctor profiles</text>
+      <text x="80" y="65" fill="#cbd5e1" font-size="11.5">• Monitor hospital-wide appointments &amp; overview analytics</text>
+    </g>
+  </g>
+
+  <!-- Connectors User Layer -> Frontend Layer -->
+  <line x1="365" y1="230" x2="365" y2="265" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)" />
+  <line x1="1555" y1="265" x2="1555" y2="230" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowBlue)" />
+  <rect x="710" y="236" width="500" height="24" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="960" y="252" fill="#cbd5e1" font-size="11" font-weight="600" text-anchor="middle">User Requests / Form Inputs   ⇄   Rendered Views &amp; Notifications</text>
+
+  <!-- ======================================================================= -->
+  <!-- 2. FRONTEND LAYER (WEB APPLICATION)                                     -->
+  <!-- ======================================================================= -->
+  <g transform="translate(60, 265)">
+    <rect x="0" y="0" width="1800" height="115" rx="10" fill="#0f172a" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="6,4" />
+    <rect x="20" y="-11" width="280" height="22" rx="5" fill="#0369a1" />
+    <text x="30" y="4" fill="#ffffff" font-size="11" font-weight="800" letter-spacing="1">2. FRONTEND LAYER (WEB APPLICATION)</text>
+
+    <!-- Frontend Module 1 -->
+    <g transform="translate(25, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="20" y="28" fill="#38bdf8" font-size="15" font-weight="700">🌐 Patient Portal &amp; Booking UI</text>
+      <text x="20" y="48" fill="#cbd5e1" font-size="11.5">• Interactive doctor directory &amp; medical specialty browsing</text>
+      <text x="20" y="65" fill="#cbd5e1" font-size="11.5">• Dynamic calendar displaying available 30-minute time slots</text>
+    </g>
+
+    <!-- Frontend Module 2 -->
+    <g transform="translate(620, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="20" y="28" fill="#38bdf8" font-size="15" font-weight="700">📋 Doctor OPD Dashboard</text>
+      <text x="20" y="48" fill="#cbd5e1" font-size="11.5">• Daily patient queue review &amp; consultation management</text>
+      <text x="20" y="65" fill="#cbd5e1" font-size="11.5">• Clinical visit completion modal &amp; digital prescription generator</text>
+    </g>
+
+    <!-- Frontend Module 3 -->
+    <g transform="translate(1215, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="20" y="28" fill="#38bdf8" font-size="15" font-weight="700">📈 Admin Management Console</text>
+      <text x="20" y="48" fill="#cbd5e1" font-size="11.5">• Department administration &amp; doctor profile management</text>
+      <text x="20" y="65" fill="#cbd5e1" font-size="11.5">• Hospital-wide statistics overview &amp; active appointment monitoring</text>
+    </g>
+  </g>
+
+  <!-- Connectors Frontend Layer -> Backend Layer -->
+  <line x1="365" y1="380" x2="365" y2="415" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrowBlue)" />
+  <line x1="1555" y1="415" x2="1555" y2="380" stroke="#a855f7" stroke-width="2" marker-end="url(#arrowPurple)" />
+  <rect x="710" y="386" width="500" height="24" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="960" y="402" fill="#cbd5e1" font-size="11" font-weight="600" text-anchor="middle">HTTP REST Requests (JSON Payloads)   ⇄   JSON API Responses</text>
+
+  <!-- ======================================================================= -->
+  <!-- 3. BACKEND PROCESSING LAYER (NODE.JS & EXPRESS.JS)                      -->
+  <!-- ======================================================================= -->
+  <g transform="translate(60, 415)">
+    <rect x="0" y="0" width="1800" height="115" rx="10" fill="#0f172a" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6,4" />
+    <rect x="20" y="-11" width="370" height="22" rx="5" fill="#6b21a8" />
+    <text x="30" y="4" fill="#ffffff" font-size="11" font-weight="800" letter-spacing="1">3. BACKEND PROCESSING LAYER (Node.js &amp; Express.js)</text>
+
+    <!-- Backend Component 1 -->
+    <g transform="translate(25, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="20" y="28" fill="#c084fc" font-size="15" font-weight="700">🔐 Authentication &amp; Access Control</text>
+      <text x="20" y="48" fill="#cbd5e1" font-size="11.5">• Secure user registration, password hashing &amp; token issuance</text>
+      <text x="20" y="65" fill="#cbd5e1" font-size="11.5">• Role-based authorization &amp; protected API route guards</text>
+    </g>
+
+    <!-- Backend Component 2 -->
+    <g transform="translate(620, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="20" y="28" fill="#c084fc" font-size="15" font-weight="700">⏱️ Appointment &amp; Slot Scheduling Logic</text>
+      <text x="20" y="48" fill="#cbd5e1" font-size="11.5">• Dynamically computes 30-minute consultation time windows</text>
+      <text x="20" y="65" fill="#cbd5e1" font-size="11.5">• Validates doctor availability &amp; prevents scheduling conflicts</text>
+    </g>
+
+    <!-- Backend Component 3 -->
+    <g transform="translate(1215, 20)">
+      <rect x="0" y="0" width="560" height="78" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="20" y="28" fill="#c084fc" font-size="15" font-weight="700">🏥 Hospital Management Services</text>
+      <text x="20" y="48" fill="#cbd5e1" font-size="11.5">• Doctor catalog, department operations &amp; status management</text>
+      <text x="20" y="65" fill="#cbd5e1" font-size="11.5">• Administrative aggregation queries for hospital statistics</text>
+    </g>
+  </g>
+
+  <!-- Connectors Backend Layer -> Database Layer -->
+  <line x1="365" y1="530" x2="365" y2="565" stroke="#7c3aed" stroke-width="2" marker-end="url(#arrowPurple)" />
+  <line x1="1555" y1="565" x2="1555" y2="530" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowGold)" />
+  <rect x="710" y="536" width="500" height="24" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="960" y="552" fill="#cbd5e1" font-size="11" font-weight="600" text-anchor="middle">Database Operations (CRUD &amp; Queries)   ⇄   Document Data &amp; Status</text>
+
+  <!-- ======================================================================= -->
+  <!-- 4. DATABASE PERSISTENCE LAYER (MONGODB)                                 -->
+  <!-- ======================================================================= -->
+  <g transform="translate(60, 565)">
+    <rect x="0" y="0" width="1800" height="145" rx="10" fill="#0f172a" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,4" />
+    <rect x="20" y="-11" width="320" height="22" rx="5" fill="#b45309" />
+    <text x="30" y="4" fill="#ffffff" font-size="11" font-weight="800" letter-spacing="1">4. DATABASE PERSISTENCE LAYER (MongoDB)</text>
+
+    <!-- Collection 1: Patients -->
+    <g transform="translate(25, 20)">
+      <rect x="0" y="0" width="330" height="105" rx="8" fill="#1e293b" stroke="#d97706" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="16" y="30" fill="#fde68a" font-size="15" font-weight="700">👥 Patients Collection</text>
+      <text x="16" y="54" fill="#cbd5e1" font-size="11.5">• Patient profile information</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="11.5">• Secure authentication credentials</text>
+      <text x="16" y="90" fill="#94a3b8" font-size="11">• Contact &amp; demographic details</text>
+    </g>
+
+    <!-- Collection 2: Doctors -->
+    <g transform="translate(380, 20)">
+      <rect x="0" y="0" width="330" height="105" rx="8" fill="#1e293b" stroke="#d97706" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="16" y="30" fill="#fde68a" font-size="15" font-weight="700">🩺 Doctors Collection</text>
+      <text x="16" y="54" fill="#cbd5e1" font-size="11.5">• Doctor profiles &amp; specializations</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="11.5">• Working days &amp; shift timings</text>
+      <text x="16" y="90" fill="#94a3b8" font-size="11">• Department reference &amp; status</text>
+    </g>
+
+    <!-- Collection 3: Departments -->
+    <g transform="translate(735, 20)">
+      <rect x="0" y="0" width="330" height="105" rx="8" fill="#1e293b" stroke="#d97706" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="16" y="30" fill="#fde68a" font-size="15" font-weight="700">🏥 Departments Collection</text>
+      <text x="16" y="54" fill="#cbd5e1" font-size="11.5">• Medical specialty departments</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="11.5">• Department descriptions &amp; icons</text>
+      <text x="16" y="90" fill="#94a3b8" font-size="11">• Active / inactive operational status</text>
+    </g>
+
+    <!-- Collection 4: Appointments (Central Entity) -->
+    <g transform="translate(1090, 20)">
+      <rect x="0" y="0" width="330" height="105" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.8" filter="url(#cardShadow)" />
+      <text x="16" y="30" fill="#38bdf8" font-size="15" font-weight="800">📑 Appointments Collection</text>
+      <text x="16" y="54" fill="#cbd5e1" font-size="11.5">• Connects Patient, Doctor &amp; Dept</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="11.5">• Date, 30-min slot &amp; booking status</text>
+      <text x="16" y="90" fill="#38bdf8" font-size="11" font-weight="600">• Consultation notes &amp; prescriptions</text>
+    </g>
+
+    <!-- Collection 5: Admins -->
+    <g transform="translate(1445, 20)">
+      <rect x="0" y="0" width="330" height="105" rx="8" fill="#1e293b" stroke="#d97706" stroke-width="1.2" filter="url(#cardShadow)" />
+      <text x="16" y="30" fill="#fde68a" font-size="15" font-weight="700">🛡️ Admins Collection</text>
+      <text x="16" y="54" fill="#cbd5e1" font-size="11.5">• System administrator credentials</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="11.5">• Administrative role verification</text>
+      <text x="16" y="90" fill="#94a3b8" font-size="11">• Audit timestamps &amp; permissions</text>
+    </g>
+  </g>
+
+  <!-- Connectors Database Layer -> Workflow -->
+  <line x1="960" y1="710" x2="960" y2="740" stroke="#14b8a6" stroke-width="2" marker-end="url(#arrowTeal)" />
+
+  <!-- ======================================================================= -->
+  <!-- 5. APPOINTMENT BOOKING WORKFLOW                                          -->
+  <!-- ======================================================================= -->
+  <g transform="translate(60, 740)">
+    <rect x="0" y="0" width="1800" height="260" rx="10" fill="#0f172a" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="6,4" />
+    <rect x="20" y="-11" width="310" height="22" rx="5" fill="#0f766e" />
+    <text x="30" y="4" fill="#ffffff" font-size="11" font-weight="800" letter-spacing="1">CORE APPOINTMENT BOOKING WORKFLOW</text>
+
+    <text x="25" y="32" fill="#94a3b8" font-size="12.5" font-weight="500">End-to-end transaction flow from doctor selection to booking confirmation</text>
+
+    <!-- Step 1: Select Doctor -->
+    <g transform="translate(25, 48)">
+      <rect x="0" y="0" width="300" height="185" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <rect x="16" y="16" width="65" height="22" rx="4" fill="#0f766e" />
+      <text x="24" y="31" fill="#ccfbf1" font-size="10" font-weight="800">STEP 1</text>
+      <text x="16" y="64" fill="#ffffff" font-size="16" font-weight="700">Select Doctor</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="11.5">• Browse medical departments</text>
+      <text x="16" y="114" fill="#cbd5e1" font-size="11.5">• Review doctor profiles &amp; fees</text>
+      <text x="16" y="136" fill="#cbd5e1" font-size="11.5">• Choose desired specialist</text>
+      <rect x="16" y="152" width="268" height="20" rx="4" fill="#082f49" />
+      <text x="24" y="166" fill="#38bdf8" font-size="10" font-weight="600">Action: Patient Portal Selection</text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <line x1="340" y1="140" x2="380" y2="140" stroke="#14b8a6" stroke-width="3" marker-end="url(#arrowTeal)" />
+
+    <!-- Step 2: Choose Slot -->
+    <g transform="translate(395, 48)">
+      <rect x="0" y="0" width="300" height="185" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <rect x="16" y="16" width="65" height="22" rx="4" fill="#0f766e" />
+      <text x="24" y="31" fill="#ccfbf1" font-size="10" font-weight="800">STEP 2</text>
+      <text x="16" y="64" fill="#ffffff" font-size="16" font-weight="700">Choose Slot</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="11.5">• Pick appointment date</text>
+      <text x="16" y="114" fill="#cbd5e1" font-size="11.5">• Fetch dynamic 30-min slots</text>
+      <text x="16" y="136" fill="#cbd5e1" font-size="11.5">• Select available time window</text>
+      <rect x="16" y="152" width="268" height="20" rx="4" fill="#082f49" />
+      <text x="24" y="166" fill="#38bdf8" font-size="10" font-weight="600">UI: Real-Time Slot Grid</text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <line x1="710" y1="140" x2="750" y2="140" stroke="#14b8a6" stroke-width="3" marker-end="url(#arrowTeal)" />
+
+    <!-- Step 3: Validate Availability -->
+    <g transform="translate(765, 48)">
+      <rect x="0" y="0" width="300" height="185" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <rect x="16" y="16" width="65" height="22" rx="4" fill="#0f766e" />
+      <text x="24" y="31" fill="#ccfbf1" font-size="10" font-weight="800">STEP 3</text>
+      <text x="16" y="64" fill="#ffffff" font-size="16" font-weight="700">Validate Availability</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="11.5">• Verify doctor shift timings</text>
+      <text x="16" y="114" fill="#cbd5e1" font-size="11.5">• Pre-check existing bookings</text>
+      <text x="16" y="136" fill="#cbd5e1" font-size="11.5">• Prevent double-booking conflicts</text>
+      <rect x="16" y="152" width="268" height="20" rx="4" fill="#1e1b4b" />
+      <text x="24" y="166" fill="#c084fc" font-size="10" font-weight="600">Backend: Concurrency &amp; Slot Guard</text>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <line x1="1080" y1="140" x2="1120" y2="140" stroke="#14b8a6" stroke-width="3" marker-end="url(#arrowTeal)" />
+
+    <!-- Step 4: Save Appointment -->
+    <g transform="translate(1135, 48)">
+      <rect x="0" y="0" width="300" height="185" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <rect x="16" y="16" width="65" height="22" rx="4" fill="#0f766e" />
+      <text x="24" y="31" fill="#ccfbf1" font-size="10" font-weight="800">STEP 4</text>
+      <text x="16" y="64" fill="#ffffff" font-size="16" font-weight="700">Save Appointment</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="11.5">• Create new appointment record</text>
+      <text x="16" y="114" fill="#cbd5e1" font-size="11.5">• Link patient, doctor &amp; department</text>
+      <text x="16" y="136" fill="#cbd5e1" font-size="11.5">• Set status as 'Booked'</text>
+      <rect x="16" y="152" width="268" height="20" rx="4" fill="#451a03" />
+      <text x="24" y="166" fill="#fde68a" font-size="10" font-weight="600">Database: MongoDB Atomic Insert</text>
+    </g>
+
+    <!-- Arrow 4 -> 5 -->
+    <line x1="1450" y1="140" x2="1490" y2="140" stroke="#14b8a6" stroke-width="3" marker-end="url(#arrowTeal)" />
+
+    <!-- Step 5: Confirmation -->
+    <g transform="translate(1505, 48)">
+      <rect x="0" y="0" width="270" height="185" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.2" filter="url(#cardShadow)" />
+      <rect x="16" y="16" width="65" height="22" rx="4" fill="#0f766e" />
+      <text x="24" y="31" fill="#ccfbf1" font-size="10" font-weight="800">STEP 5</text>
+      <text x="16" y="64" fill="#ffffff" font-size="16" font-weight="700">Confirmation</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="11.5">• Display booking confirmation</text>
+      <text x="16" y="114" fill="#cbd5e1" font-size="11.5">• Update patient dashboard</text>
+      <text x="16" y="136" fill="#cbd5e1" font-size="11.5">• Add to doctor's OPD schedule</text>
+      <rect x="16" y="152" width="238" height="20" rx="4" fill="#064e3b" />
+      <text x="24" y="166" fill="#6ee7b7" font-size="10" font-weight="600">Result: Confirmed Appointment</text>
+    </g>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- 6. FOOTER LEGEND                                                        -->
+  <!-- ======================================================================= -->
+  <g transform="translate(60, 1018)">
+    <rect x="0" y="0" width="1800" height="38" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
+    <text x="25" y="24" fill="#94a3b8" font-size="11" font-weight="700">ARCHITECTURE LAYERS:</text>
+
+    <rect x="200" y="13" width="12" height="12" rx="3" fill="#10b981" />
+    <text x="220" y="23" fill="#cbd5e1" font-size="11">User Layer (Actors)</text>
+
+    <rect x="420" y="13" width="12" height="12" rx="3" fill="#0ea5e9" />
+    <text x="440" y="23" fill="#cbd5e1" font-size="11">Frontend Layer (Web App)</text>
+
+    <rect x="680" y="13" width="12" height="12" rx="3" fill="#8b5cf6" />
+    <text x="700" y="23" fill="#cbd5e1" font-size="11">Backend Layer (Node.js &amp; Express)</text>
+
+    <rect x="990" y="13" width="12" height="12" rx="3" fill="#f59e0b" />
+    <text x="1010" y="23" fill="#cbd5e1" font-size="11">Database Layer (MongoDB)</text>
+
+    <rect x="1245" y="13" width="12" height="12" rx="3" fill="#14b8a6" />
+    <text x="1265" y="23" fill="#cbd5e1" font-size="11">Appointment Booking Workflow</text>
+  </g>
+</svg>
