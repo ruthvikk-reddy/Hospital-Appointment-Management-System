@@ -2,8 +2,6 @@
 
 A web-based outpatient consultation and appointment scheduling platform developed with **Node.js**, **Express.js**, **MongoDB**, **Mongoose ODM**, and **vanilla HTML5/CSS3/JavaScript (ES6+)**.
 
-Developed as an academic capstone project for the **Database Systems Lab (BCSE302P)** at the **School of Computer Science and Engineering, Vellore Institute of Technology (VIT), Vellore**, by **Ruthvik Reddy Thummala (24BAI0237)**.
-
 ---
 
 ## Table of Contents
